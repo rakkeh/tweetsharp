@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1A4370A-13F1-4309-ACD4-A05B3551ABF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TweetSharp</RootNamespace>
+    <AssemblyName>TweetSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile136</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="TwitterService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TwitterService.generated.cs</LastGenOutput>
+    </None>
+    <Content Include="_TwitterService.1.Timelines.json" />
+    <Content Include="_TwitterService.10.Lists.json" />
+    <Content Include="_TwitterService.11.SavedSearches.json" />
+    <Content Include="_TwitterService.12.Places.json" />
+    <Content Include="_TwitterService.13.Trends.json" />
+    <Content Include="_TwitterService.14.Help.json" />
+    <Content Include="_TwitterService.2.Tweets.json" />
+    <Content Include="_TwitterService.3.Search.json" />
+    <Content Include="_TwitterService.5.DirectMessages.json" />
+    <Content Include="_TwitterService.6.FriendsFollowers.json" />
+    <Content Include="_TwitterService.7.Users.json" />
+    <Content Include="_TwitterService.8.SuggestedUsers.json" />
+    <Content Include="_TwitterService.9.Favorites.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Globals.cs" />
+    <Compile Include="Helpers\PathHelpers.cs" />
+    <Compile Include="Serialization\ISerializer.cs" />
+    <Compile Include="Serialization\IDeserializer.cs" />
+    <Compile Include="Models\Enums\TwitterEntityType.cs" />
+    <Compile Include="Models\Enums\TwitterMediaType.cs" />
+    <Compile Include="Models\Enums\TwitterPlaceType.cs" />
+    <Compile Include="Models\Enums\TwitterProfileImageSize.cs" />
+    <Compile Include="Models\Enums\TwitterSearchResultType.cs" />
+    <Compile Include="Models\Interfaces\ICursored.cs" />
+    <Compile Include="Models\Interfaces\ITweetable.cs" />
+    <Compile Include="Models\Interfaces\ITweeter.cs" />
+    <Compile Include="Models\Interfaces\ITwitterModel.cs" />
+    <Compile Include="ITwitterService.Auth.cs" />
+    <Compile Include="Models\DescriptionAttribute.cs" />
+    <Compile Include="Models\Interfaces\IRateLimitStatus.cs" />
+    <Compile Include="Models\TwitterEntity.cs" />
+    <Compile Include="Models\TwitterFriendshipLookup.cs" />
+    <Compile Include="Models\TwitterRateLimitResource.cs" />
+    <Compile Include="Models\TwitterRateLimitResourceConverter.cs" />
+    <Compile Include="Models\TwitterRateLimitStatusSummary.cs" />
+    <Compile Include="Models\TwitterUrl.cs" />
+    <Compile Include="Serialization\JsonConventionResolver.cs" />
+    <Compile Include="Serialization\JsonSerializer.cs" />
+    <Compile Include="OAuthAccessToken.cs" />
+    <Compile Include="OAuthRequestToken.cs" />
+    <Compile Include="Helpers\ObjectExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\PropertyChangedBase.cs" />
+    <Compile Include="Serialization\SerializerBase.cs" />
+    <Compile Include="Helpers\StringExtensions.cs" />
+    <Compile Include="Helpers\StringHelpers.cs" />
+    <Compile Include="Helpers\TimeExtensions.cs" />
+    <Compile Include="Models\TwitterAccount.cs" />
+    <Compile Include="Models\TwitterClientInfo.cs" />
+    <Compile Include="Serialization\TwitterConverterBase.cs" />
+    <Compile Include="Models\TwitterCursorList.cs" />
+    <Compile Include="Models\TwitterDateFormat.cs" />
+    <Compile Include="Models\TwitterDateTime.cs" />
+    <Compile Include="Serialization\TwitterDateTimeConverter.cs" />
+    <Compile Include="Models\TwitterDeliveryDevice.cs" />
+    <Compile Include="Models\TwitterDirectMessage.cs" />
+    <Compile Include="Models\TwitterEntities.cs" />
+    <Compile Include="Models\Enums\TwitterListMode.cs" />
+    <Compile Include="Models\TwitterError.cs" />
+    <Compile Include="Models\TwitterFriend.cs" />
+    <Compile Include="Models\TwitterFriendship.cs" />
+    <Compile Include="Models\TwitterGeoConverter.cs" />
+    <Compile Include="Models\TwitterGeoLocation.cs" />
+    <Compile Include="Models\TwitterGeoLocationSearch.cs" />
+    <Compile Include="Models\TwitterList.cs" />
+    <Compile Include="Models\TwitterLocalTrends.cs" />
+    <Compile Include="Models\TwitterPlace.cs" />
+    <Compile Include="Models\TwitterRateLimitStatus.cs" />
+    <Compile Include="Models\TwitterRelationship.cs" />
+    <Compile Include="Models\TwitterResponse.cs" />
+    <Compile Include="Models\TwitterSavedSearch.cs" />
+    <Compile Include="Models\TwitterSearchResult.cs" />
+    <Compile Include="Serialization\Utf8Serializer.cs" />
+    <Compile Include="TwitterService.Requests.cs" />
+    <Compile Include="TwitterService.generated.cs">
+      <DependentUpon>TwitterService.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TwitterService.OAuth.cs" />
+    <Compile Include="TwitterService.Streaming.cs" />
+    <Compile Include="Models\TwitterSleepTime.cs" />
+    <Compile Include="Models\TwitterStatus.cs" />
+    <Compile Include="Models\TwitterTimeZone.cs" />
+    <Compile Include="Models\TwitterTrend.cs" />
+    <Compile Include="Models\TwitterTrends.cs" />
+    <Compile Include="Models\TwitterUser.cs" />
+    <Compile Include="TwitterUserStreams.cs" />
+    <Compile Include="Models\TwitterUserSuggestions.cs" />
+    <Compile Include="Serialization\TwitterWonkyBooleanConverter.cs" />
+    <Compile Include="Models\WhereOnEarthLocation.cs" />
+    <Compile Include="Models\WhereOnEarthPlaceType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\portable-net40+sl5+win8+wp8+wpa81\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\portable-net40+sl5+win8+wp8+wpa81\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\portable-net40+sl5+win8+wp8+wpa81\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
