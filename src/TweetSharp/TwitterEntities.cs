@@ -407,11 +407,12 @@ namespace TweetSharp
 #endif
 		public virtual string ExpandedUrl { get; set; }
 
-		[JsonProperty("type")]
+        [JsonProperty("type")]
+        [JsonConverter(typeof(TwitterMediaTypeJsonConverter))]
 #if !Smartphone && !NET20
 				[DataMember]
 #endif
-		public virtual TwitterMediaType MediaType { get; set; }
+        public virtual TwitterMediaType MediaType { get; set; }
 
 		[JsonProperty("sizes")]
 #if !Smartphone && !NET20
